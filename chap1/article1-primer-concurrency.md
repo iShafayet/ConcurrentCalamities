@@ -4,10 +4,14 @@ A Primer on Concurrency
 =================
 
 Let's start with a problem. PlayStation 5s are a rare commodity in 2022. James and Lola 
-are both eager to get one. Luckily, they stumble upon a e-commerce website that has 1 piece 
-available. They rush towards the checkout button and conincidentally both order the item 
+are both eager to get one. Luckily, they stumble upon an e-commerce website that has a single glorious piece 
+available. They rush towards the checkout button and conincidentally both of them order the item 
 within a few seconds of the other. Surprisingly, they both checkout successfully. But we know, 
 one of them will be getting a call from a very apologetic customer care person.
+
+We can intuitively deduce that this happened because - 
+1. both orders happened at almost at the same time.
+2. AND the immediate second order went through before the quantity in the inventory was reduced by the first order.
 
 Let's look at the checkout logic (pseudocode) on the server - 
 
@@ -43,11 +47,11 @@ near simultaneously, data anomaly occurs. Let's break it down -
 In this example, even though the algorithm works great when called only once or sequencially,
 it falls apart when we try to run it in parallel (more accurate term is **concurrently**).
 
-Therefore, it's crucial to be mindful about **concurrency** in computer science.
+This shows, it's crucial to be mindful about **concurrency** in computer science.
 
 > Definition: Concurrency is when two or more tasks can start, run, and complete in overlapping time periods. <sup>[1]</sup>
 
-> Simplified: The situation where your code or your application takes two or more actions at the same time is called **concurrency**. The key here is the timelines have to overlap, even if for a little while.
+> Simplified: The situation where your code or your application performs two or more actions at the same time is called **concurrency**. The key here is, the timelines have to overlap, even if for a little while.
 
 
 
